@@ -98,7 +98,7 @@ $ docker rm my-react-app-container
 $ docker exec -it my-react-app-container sh
 ```
 
-## Overwrite the command to run the temporal container just to run test cases 
+## Overwrite the command to run the temporal container just to run test cases 👀
 Example: 
 If in the Dockerfile.dev we have these lines: 
 ```Docker
