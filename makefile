@@ -11,4 +11,6 @@ push:
 # Good practice: use .PHONY for targets that aren't actual files
 .PHONY: all commit-push
 
-# Also you can run it like this: make push MSG="fixed a bug in the docker config".
+# NOW you can run PUSH the git changes using this command line
+# Example:
+# $ make push MSG="fixed a bug in the docker config"
