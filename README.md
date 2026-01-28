@@ -74,8 +74,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## Docker Commands to run creating and working with containers: 
 
 ```bash
+# Create an images
+$ docker build -t my-react-app-image:latest -f Dockerfile.dev .
+
+# Create a container with volumes
 $ docker run -it -v "$(pwd):/app" -w /app --rm --name my-react-app-container -p 3000:3000 my-react-app-image:latest
+
+# Create a container without volumes
 $ docker run -it --name my-react-app-container -d -p 3000:3000 my-react-app-image:latest 
+
+# Stop a container -> my-react-app-container 
 $ docker stop my-react-app-container
+
+# Remove container -> my-react-app-container
 $ docker rm my-react-app-container
 ```
