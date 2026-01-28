@@ -97,3 +97,39 @@ $ docker rm my-react-app-container
 # Open files in up container
 $ docker exec -it my-react-app-container sh
 ```
+
+## Overwrite the command to run the temporal container just to run test cases 
+Example: 
+If in the Dockerfile.dev we have these lines: 
+```Docker
+FROM node:lts-alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "start"]
+```
+And you can change the current execution for: `npm run test` and you have your image already created just run this command line
+`docker run -it <IMAGE-ID> sh -c "npm run test"` or simply `docker run -it <IMAGE-ID> npm run test` <-- # Check the package.json file for scripts
+
+OUTPUT: 
+```shell
+ PASS  src/App.test.js
+  ✓ renders learn react link (10 ms)
+  ✓ renders learn react link_2 (2 ms)
+  ✓ renders learn react link_3 (2 ms)
+  ✓ renders learn react link_4 (2 ms)
+  ✓ renders learn react link_5 (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        0.11 s, estimated 1 s
+Ran all test suites.
+
+Watch Usage: Press w to show more.
+```

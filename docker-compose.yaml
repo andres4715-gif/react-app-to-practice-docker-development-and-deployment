@@ -12,6 +12,22 @@ services:
       - /app/node_modules
       - .:/app
 
+  # New container to run some test
+  react-run-test:
+    container_name: my-react-run-test-container
+    build:
+        context: .
+        dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]
 
 # To run the docker-compose.yaml file just run this command line: 
 # docker compose up
+
+# To finish the components created by docker compose up just add this command line
+# docker compose down
+
+# To run new build again the docker compose for any change add this command line
+# docker compose up --build
