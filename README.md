@@ -93,4 +93,7 @@ $ docker stop my-react-app-container
 
 # Remove container -> my-react-app-container
 $ docker rm my-react-app-container
+
+# Open files in up container
+$ docker exec -it my-react-app-container sh
 ```
